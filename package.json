@@ -1,0 +1,33 @@
+{
+  "name": "replace-html-script",
+  "version": "1.0.0",
+  "description": "replaces the content of the script-tag with a given file",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "eslint && mocha"
+  },
+  "keywords": [
+    "html",
+    "script",
+    "script-tag",
+    "script-element",
+    "polymer",
+    "polymer2",
+    "web-component",
+    "web-components",
+    "replace"
+  ],
+  "author": "Martin Lümkemann",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "fs-extra": "^8.0.0",
+    "htmlparser2": "^3.10.1"
+  }
+}

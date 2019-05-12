@@ -1,0 +1,85 @@
+#!/usr/bin/env node
+const { replaceScript } = require('../lib/replaceScript.js');
+const { basename } = require('path');
+
+function printUsage() {
+	console.log(`usage: ${basename(process.argv[1])} (-i|--input) <html-file> (-s|--script) <script-file> [(-o|--output) <output-file>]`);
+}
+
+function missingParam(param) {
+	console.error(`missing parameter for ${JSON.stringify(param)}`);
+	printUsage();
+	process.exit(1);
+}
+
+function unknownParam(param) {
+	console.error(`unknown parameter ${JSON.stringify(param)}`);
+	printUsage();
+	process.exit(1);
+}
+
+function processCmdlineOptions() {
+	const argv = process.argv;
+	const opt = { in:null, js: null, out:null };
+
+	for (let i=2 ; i<argv.length; i++) {
+		if (argv[i] === "-h" || argv[i] == "--html") {
+			printUsage();
+			process.exit(0);
+		}
+		else if (argv[i] === "-i" || argv[i] == "--input") {
+			if (i+1 < argv.length) {
+				++i;
+				opt.input = argv[i];
+			}
+			else missingParam(argv[i]);
+		}
+		else if (argv[i] === "-o" || argv[i] == "--output") {
+			if (i+1 < argv.length) {
+				++i;
+				opt.output = argv[i];
+			}
+			else missingParam(argv[i]);
+		}
+		else if (argv[i] === "-s" || argv[i] == "--script") {
+			if (i+1 < argv.length) {
+				++i;
+				opt.script = argv[i];
+			}
+			else missingParam(argv[i]);
+		}
+		else {
+			unknownParam(argv[i]);
+		}
+	}
+	// post processing
+	if (!opt.input) {
+		opt.input = process.stdin;
+		opt.input.setEncoding( 'utf8' );
+	}
+	if (!opt.output) {
+		opt.output = process.stdout;
+		opt.output.setEncoding( 'utf8' );
+	}
+	if (!opt.script) {
+		console.error("Missing command line option '-s' or '--script'");
+		printUsage();
+		process.exit(1);
+	}
+	return opt;
+}
+
+const _main = typeof require !== 'undefined' && require.main==module;
+
+if (_main) {
+	const opt = processCmdlineOptions();
+	replaceScript(opt)
+	.then( () => process.exit(0) )
+	.catch(e=>{
+		console.error(""+e);
+		process.exit(1);
+	})
+}
+else {
+	throw new Error("replaceScript must be used as main module");
+}
