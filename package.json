@@ -11,6 +11,10 @@
     "mocha": "mocha",
     "lint": "eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xhronos/replace-html-script"
+  },
   "keywords": [
     "html",
     "script",
