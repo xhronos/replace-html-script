@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm run-script lint && mocha",
-	"lint": "eslint ."
+    "test": "npm run-script lint && npm run-script mocha",
+    "mocha": "mocha",
+    "lint": "eslint ."
   },
   "keywords": [
     "html",
@@ -24,6 +25,7 @@
   "author": "Martin Lümkemann",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "mocha": "^6.1.4"
   },

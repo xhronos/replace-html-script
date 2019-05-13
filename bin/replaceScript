@@ -74,11 +74,14 @@ const _main = typeof require !== 'undefined' && require.main==module;
 if (_main) {
 	const opt = processCmdlineOptions();
 	replaceScript(opt)
-	.then( () => process.exit(0) )
-	.catch(e=>{
+	.then( () => {
+		console.log("DONE!");
+		process.exit(0);
+	})
+	.catch(e => {
 		console.error(""+e);
 		process.exit(1);
-	})
+	});
 }
 else {
 	throw new Error("replaceScript must be used as main module");
