@@ -1,5 +1,7 @@
 # replace-html-script
 
+[![Build Status via Travis CI](https://travis-ci.org/xhronos/replace-html-script.svg?branch=master)](https://travis-ci.org/xhronos/replace-html-script)
+
 Replaces the script tag in html files with the content of a script-file.
 Works also on html-imports which are not well formed html documents since they
 are missing the surrounding `<html>`, `<head>` / `<body>` tags.
