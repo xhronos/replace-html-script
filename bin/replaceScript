@@ -59,7 +59,6 @@ function processCmdlineOptions() {
 	}
 	if (!opt.output) {
 		opt.output = process.stdout;
-		opt.output.setEncoding( 'utf8' );
 	}
 	if (!opt.script) {
 		console.error("Missing command line option '-s' or '--script'");
