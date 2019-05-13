@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "fs-extra": "^8.0.0",
-    "htmlparser2": "^3.10.1"
+    "parse5-html-rewriting-stream": "^5.1.0"
   }
 }
