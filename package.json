@@ -1,6 +1,6 @@
 {
   "name": "replace-html-script",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "replaces the content of the script-tag with a given file",
   "main": "index.js",
   "directories": {
