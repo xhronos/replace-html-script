@@ -49,7 +49,7 @@ The `output` parameter can also be either a filename or a WritableStream.
 #### using filenames
 
 ```javascript
-const { replaceScript } = require('replaceScript');
+const { replaceScript } = require('replace-html-script');
 
 const input = 'input.html';
 const output = 'input.html';
@@ -62,7 +62,7 @@ replaceScript({input, output, script})
 #### using streams
 
 ```javascript
-const { replaceScript } = require('replaceScript');
+const { replaceScript } = require('replace-html-script');
 const fs = require('fs');
 
 const input = fs.createReadStream('input.html');
