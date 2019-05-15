@@ -76,7 +76,7 @@ async function execute(opt) {
 	}
 
 	let output = "";
-	const proc = spawn('bin/replaceScript', args);
+	const proc = spawn('bin/replace-html-script', args);
 	proc.stdout.setEncoding('utf-8');
 	proc.stdout.on('data', data => {
 		output += data;
