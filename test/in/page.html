@@ -1,15 +1,26 @@
 <html>
 <head>
+	<meta charset="UTF-8">
     <title>test page</title>
 
 	<script src="some-source1.js"></script>
 	<script src="some-source2.js"></script>
 
     <script type="">
-    function(){
+    function foo(){
         //this is some <script>
         console.log("original script");
     }
     </script>
 
-</dom-module>
+</head>
+<body>
+<select>
+  <option value="aaa">AAA</option>
+  <option value="bbb">BBB</option>
+  <option value="ccc" selected>CCC</option>
+  <option value="ddd">DDD</option>
+</select>
+
+</body>
+</html>
